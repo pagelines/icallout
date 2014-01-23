@@ -37,6 +37,19 @@ class PLICallout extends PageLinesSection {
 						'type' 			=> 'text',
 						'label' 		=> __( 'Callout Text', 'pagelines' ),
 					),
+					array(
+						'type' 			=> 'select',
+						'key'			=> 'icallout_text_wrap',
+						'label' 		=> __( 'Callout Text Wrapper', 'pagelines' ),
+						'default'		=> 'h2',
+						'opts'			=> array(
+							'h1'			=> array('name' => '&lt;h1&gt;'),
+							'h2'			=> array('name' => '&lt;h2&gt;  (default)'),
+							'h3'			=> array('name' => '&lt;h3&gt;'),
+							'h4'			=> array('name' => '&lt;h4&gt;'),
+							'h5'			=> array('name' => '&lt;h5&gt;'),
+						)
+					),
 
 				)
 			),
@@ -84,15 +97,17 @@ class PLICallout extends PageLinesSection {
 		$link_target = ( $this->opt( 'icallout_target', $this->oset ) ) ? ' target="_blank"': '';
 		$theme = ($this->opt('icallout_btn_theme')) ? $this->opt('icallout_btn_theme') : 'btn-primary';
 		$link_text = ( $this->opt('icallout_link_text') ) ? $this->opt('icallout_link_text') : 'Learn More <i class="icon-angle-right"></i>';
+		$text_wrap = ( '' != $this->opt( 'icallout_text_wrap' ) ) ? $this->opt( 'icallout_text_wrap' ) : 'h2';
 
 		if(!$text && !$link){
 			$text = __("Call to action!", 'pagelines');
 		}
 
+		$callout_head = sprintf( '<%s class="icallout-head" data-sync="icallout_text">%s</%s>', $text_wrap, $text, $text_wrap );
+
 		?>
 		<div class="icallout-container <?php echo $format;?>">
-
-			<h2 class="icallout-head" data-sync="icallout_text"><?php echo $text; ?></h2>
+			<?php echo $callout_head; ?>
 			<a class="icallout-action btn <?php echo $theme;?> btn-large" href="<?php echo $link; ?>" <?php if($link_target){ ?> target="_blank" <?php } ?>  data-sync="icallout_link_text"><?php echo $link_text; ?></a>
 
 		</div>
