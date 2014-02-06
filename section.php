@@ -96,7 +96,7 @@ class PLICallout extends PageLinesSection {
 		$link = $this->opt('icallout_link');
 		$link_target = ( $this->opt( 'icallout_target', $this->oset ) ) ? ' target="_blank"': '';
 		$theme = ($this->opt('icallout_btn_theme')) ? $this->opt('icallout_btn_theme') : 'btn-primary';
-		$link_text = ( $this->opt('icallout_link_text') ) ? $this->opt('icallout_link_text') : 'Learn More <i class="icon-angle-right"></i>';
+		$link_text = ( $this->opt('icallout_link_text') ) ? $this->opt('icallout_link_text') : 'Learn More <i class="icon icon-angle-right"></i>';
 		$text_wrap = ( '' != $this->opt( 'icallout_text_wrap' ) ) ? $this->opt( 'icallout_text_wrap' ) : 'h2';
 
 		if(!$text && !$link){
