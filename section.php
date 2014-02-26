@@ -29,6 +29,7 @@ class PLICallout extends PageLinesSection {
 			),
 			array(
 				'type' 			=> 'multi',
+				'col'			=> 2,
 				'title' 		=> __( 'Callout Text', 'pagelines' ),
 				'opts'	=> array(
 					array(
@@ -56,6 +57,7 @@ class PLICallout extends PageLinesSection {
 			array(
 				'type' 			=> 'multi',
 				'title' 		=> 'Link/Button',
+				'col'			=> 3,
 				'opts'	=> array(
 
 					 array(
